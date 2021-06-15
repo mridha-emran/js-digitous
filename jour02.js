@@ -18,7 +18,7 @@ console.log(rounded);
 //ex 4
  var test=12;
  var bis=5;
- console(test+bis,test-bis, test%bis);
+ console.log(test+bis,test-bis, test%bis);
 // ex 5
 var test = 143;
 var bis =219;
@@ -51,6 +51,7 @@ if(score>=limit===password.length>5){
 else if (score>=limit && password.length>5){
     console.log("nathing is good")
 }
+// bon 1
  var min = 1;
  var max =6;
   var random= Math.floor(Math.random() * (max - min + 1) + min); 
@@ -62,7 +63,7 @@ else if (score>=limit && password.length>5){
       console.log("so close");
   }
 
-
+//bon 2
   var month="janvier";
   switch(month){
       
@@ -79,9 +80,11 @@ else if (score>=limit && password.length>5){
 
   }
 
-  var roundedNumber=3.6;
-  if()
-
+  var roundedNumber = 3.6
+if (((roundedNumber - Math.floor(roundedNumber)) * 10) >= 5 ) { 
+    console.log(Math.ceil(roundedNumber)) 
+} else {
+    console.log(Math.floor(roundedNumber))}
 
 
 
