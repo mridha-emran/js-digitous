@@ -80,7 +80,7 @@ else if (score>=limit && password.length>5){
 
   }
 
-  var roundedNumber = 3.6
+  var roundedNumber = 
 if (((roundedNumber - Math.floor(roundedNumber)) * 10) >= 5 ) { 
     console.log(Math.ceil(roundedNumber)) 
 } else {
