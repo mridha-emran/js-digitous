@@ -74,3 +74,18 @@ function compare (num1,num2){
       console.log( format(3700))
 
       // BON 
+      
+      var passwords = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+      var result = ""
+      function Password(num) {
+          if ( num <6 || num > 15) {
+              console.log("try again")
+          } else {
+          for ( var i = 0; i < num; i++ ) {
+              result =+ passwords.charAt(Math.floor(Math.random() * passwords.length))
+          }
+        console.log()
+      }
+      console.log(Password(8))}
+
+      
