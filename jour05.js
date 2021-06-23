@@ -37,6 +37,58 @@ function multiply(number){
 }
 multiply(parseInt(process.argv[2]))
 
+// 03 - EX
+var { multiply, addition } = require("./table-utils");
+
+if (process.argv.length !== 4) {
+    console.log("Error");
+} else {
+    
+    multiply(parseInt(process.argv[2]));
+    
+    addition(parseInt(process.argv[3]));
+}
+
+//04-EX
+var prompt = require("prompt");
+var mysteryNum = Math.floor(Math.random() * 100 + 1);
+console.log("mynum", mysteryNum)
+
+function play(){
+    prompt.get(
+        {
+           name: "userNumber",
+            description: "Quel est le nombre mystère ?",
+        },
+        function (err,res){
+
+            if (err) {
+                return onErr(err);
+            }
+        
+            if (res.userNumber<1 || res.userNumber>100) {
+                console.log("give me number between 1 et 100");
+                play();
+            }
+        
+            else if (res.userNumber < mysteryNum) {
+                console.log("give me big number")
+                play()
+            } else if (res.userNumber > mysteryNum) {
+                console.log("give me small number")
+                play()
+            }
+            else{
+                console.log("yes win!")
+            }
+        }
+
+        
+    )
+
+}
+
+play()
 
 
 
