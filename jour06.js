@@ -1,3 +1,5 @@
+//ex 1
+
 function formatDate(strD) {
 
 	strD = new Date(strD)
@@ -8,7 +10,7 @@ function formatDate(strD) {
 
 }
 
-
+//ex 2
 function calculateAge (strage) {
     born=new Date(strage)
 console.log(strage)
@@ -22,3 +24,4 @@ console.log(strage)
 }
 
 calculateAge("1985-11-23")
+//ex-3

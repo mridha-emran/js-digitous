@@ -84,8 +84,9 @@ function compare (num1,num2){
           for ( var i = 0; i < num; i++ ) {
               result =+ passwords.charAt(Math.floor(Math.random() * passwords.length))
           }
-        console.log()
+        console.log(result)
       }
-      console.log(Password(8))}
+      }
+      password(8)
 
       
