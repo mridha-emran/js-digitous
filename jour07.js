@@ -83,16 +83,12 @@ console.log(number);
 ]
 
 var chocolatCake=cake.filter(str=>{
-
         return str.flavor==="chocolate"
-    
-    
+        
 })
 
 var chocolatCakeSold=chocolatCake.map(str=>{
-     
- 
-          str.status="sold out"
+            str.status="sold out"
           return str
      
 })

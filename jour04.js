@@ -87,6 +87,6 @@ function compare (num1,num2){
         console.log(result)
       }
       }
-      password(8)
+      
 
       

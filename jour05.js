@@ -57,7 +57,7 @@ if (process.argv.length !== 4) {
 //04-EX
 var prompt = require("prompt");
 var mysteryNum = Math.floor(Math.random() * 100 + 1);
-//console.log("mynum", mysteryNum)
+
 
 function play(){
     prompt.get(
