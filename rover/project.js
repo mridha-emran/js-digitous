@@ -1,12 +1,6 @@
 const prompt= require("prompt");
       prompt.start()
-// var properties = [{
-// 	name : "Put a letter";
-	
-// }]	  
-// prompt.get(properties, function(err,res){
-	
-// }
+
 var grid = [
 	[" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
 	[" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
@@ -20,7 +14,7 @@ var grid = [
 	[" ", " ", " ", " ", " ", " ", " ", " ", " ", " "]
 ];
 var rover= { 
-	direction :"S",
+	direction :"N",
 	x:0,
 	y:0,
 	travelLog:[],
@@ -45,10 +39,10 @@ function turnLeft(rover){
 		// console.log(rover + "this is north")
 	}
 	 console.log(rover);
-	 grid[rover.x][rover.y]=rover.direction
+	 grid[rover.y][rover.x]=rover.direction
 
 }
-turnLeft(rover);
+ turnLeft(rover);
 
 
 
@@ -76,79 +70,124 @@ function turnRight(rover){
 };
 
 function moveForward(rover){
-	if((rover.x<0||rover.x>10)||(rover.y<0||rover.y>10)){
+	if(rover.x<0||rover.x>9||rover.y<0||rover.y>9){
+
 			console.log("go other direction")
 	}
 	else if(rover.direction==="N"){
-		rover.x--;	
+		if(rover.y!=0){
+
+			rover.y--;	
+		}
+		
 	}
 	else if(rover.direction==="E"){
-		rover.y++;	
+		if(rover.x!=9){
+
+			rover.x++;	
+		}
+
 	}
 	else if(rover.direction==="S"){
-		rover.x++;	
+		if(rover.y!=9){
+
+			rover.y++;
+		}
+
 	}
 	else if(rover.direction==="W"){
-		rover.y--;	
+		if(rover.x!=0){
+
+			rover.x--;	
+		}
 	}
 	console.log(rover)
 	grid[rover.y][rover.x]=rover.direction
 }
 
-function moveBackward(rover){
-	if((rover.x<0||rover.x>10)||(rover.y<0||rover.y>10)){
-		console.log("go other direction")
-	}
-	else if(rover.direction==="N"){
-		rover.x++;	
-	}
-	else if(rover.direction==="E"){
-		rover.y--;	
-	}
-	else if(rover.direction==="S"){
-		rover.x--;	
-	}
-	else if(rover.direction==="W"){
-		rover.y++;	
-	}
-	console.log(rover)
-	grid[rover.y][rover.x]=rover.direction
-}
-moveForward(rover);
-moveBackward(rover);
+
+// function moveBackward(rover){
+// 	if((rover.x<0||rover.x>10)||(rover.y<0||rover.y>10)){
+// 		console.log("go other direction")
+// 	}
+// 	else if(rover.direction==="N"){
+// 		rover.y++;	
+// 	}
+// 	else if(rover.direction==="E"){
+// 		rover.x++;	
+// 	}
+// 	else if(rover.direction==="S"){
+// 		rover.y--;	
+// 	}
+// 	else if(rover.direction==="W"){
+// 		rover.x--;	
+// 	}
+// 	console.log(rover)
+// 	grid[rover.y][rover.x]=rover.direction
+// }
+// moveForward(rover);
+// moveBackward(rover);
 
 function pilotRover(string){
 	 
  for ( var i =0; i <= string.length; i ++ ){
 		if (string[i]==="l"){
 			turnLeft(rover)
+			rover.travelLog.push([rover.x,rover.y])
 		}
 		else if(string[i]==="r"){
 			turnRight(rover)
+			rover.travelLog.push([rover.x,rover.y])
 		}
 		else if(string[i]==="f"){
 			moveForward(rover)
+			rover.travelLog.push([rover.x,rover.y])
 		}
 
-		else if(string[i]==="b"){
-			moveBackward(rover)
-		}
+		// else if(string[i]==="b"){
+		// 	moveBackward(rover)
+		// 	rover.travelLog.push([rover.x,rover.y])
+			
+		// }
  }
  console.table(grid)
 }
 
-pilotRover("rrllffbbm")
+// pilotRover("rrllffbbm")
 
 function show (){
-	prompt.get( [show], function (err,res){
+	prompt.get({name:"input",
+		description: "give me r/l/f/b",
+	}, 
+	function (err,res){
 		if (err) {
-			return onErr(err);
+			return("errr");
+
 		}
-		else {
-	  console.log(res.show);
+
+		else if(res.input==="l"){
+			pilotRover("l")
+			show()
+		}
+		else if(res.input==="r"){
+			pilotRover("r")
+			show()
+		}
+		else if(res.input==="f"){
+			pilotRover("f")
+			show()
+		}
+		
+		
+	
+	//   console.log(res.show);
+	//   pilotRover("rrllffbbm")
+
+	//   console.log(rover.travelLog)
 	  
-	pilotRover("rrllffbbm")
-		}
+
+	
+	   
 	})
 }
 show()
